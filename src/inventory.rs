@@ -9,7 +9,7 @@ pub mod inventory {
     }
 
     pub fn load_file(filename: String) {
-        println!("In file {}", filename);
+        println!("reading {} ........\n", filename);
         let data = std::fs::read_to_string(filename).expect("Unable to read file");
         println!("{}", data);
     }
