@@ -77,4 +77,9 @@ proxy=proxy.atlanta.example.com
 # /etc/ansible/host_vars/foosball";
         std::fs::write("inventory", data).expect("Unable to write file");
     }
+
+    pub fn sldkfj() {
+        let v2 = vec![1; 10];
+        println!("[{}]", v2.iter().fold(String::new(), |acc, &num| acc + &num.to_string() + ", "));
+    }
 }
