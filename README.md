@@ -30,6 +30,8 @@ or
 
 # use
 
+> ./target/debug/inventory-dsigner --generate-sample-inventory
+
 ## combine file inventories into single file
 
 > invcomb --inputfile="examples/inventory1.yml,examples/inventory2.yml" --outputfile="xxx.yml"
