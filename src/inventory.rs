@@ -1,5 +1,3 @@
-use std::fs;
-
 pub mod inventory {
 
     #[derive(Debug)]
@@ -10,15 +8,19 @@ pub mod inventory {
         pub vars: String
     }
 
-    pub fn LoadFile() {
-        // --snip--
-    println!("In file {}", filename);
-
-    let contents = fs::read_to_string(filename)
-        .expect("Something went wrong reading the file");
-
-    println!("With text:\n{}", contents);
+    pub fn load_file(filename: String) {
+        println!("In file {}", filename);
+        let data = std::fs::read_to_string(filename).expect("Unable to read file");
+        println!("{}", data);
     }
+
+//     // The output is wrapped in a Result to allow matching on errors
+// // Returns an Iterator to the Reader of the lines of the file.
+//     fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
+//     where P: AsRef<Path>, {
+//         let file = File::open(filename)?;
+//         Ok(io::BufReader::new(file).lines())
+//     }
 }
 
 

@@ -1,4 +1,5 @@
 extern crate argparse;
+use inventory_dsigner::inventory;
 
 use argparse::{ArgumentParser, StoreTrue, Store};
 
@@ -21,6 +22,7 @@ ap.parse_args_or_exit();
         println!("name is {}", name);
     }
     println!("Hello {}!", name);
+    inventory::inventory::load_file("inventory.yml".to_string());
 }
 
 
