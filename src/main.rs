@@ -1,5 +1,5 @@
 extern crate argparse;
-use inventory_dsigner::inventory;
+use inventory_dsigner::inventory::inventory;
 
 use argparse::{ArgumentParser, StoreTrue, Store};
 
@@ -24,9 +24,9 @@ fn main() {
         println!("version is {}", version);
     }
     println!("Inventory dSigner {} build {} \"Ulotrichous\"", version, INTERNAL_VERSION);
-    inventory::inventory::load_file("inventory".to_string());
-    inventory::inventory::generate_sample_inventory();
-    inventory::inventory::init_struct_inventory();
+    inventory::load_file("inventory".to_string());
+    inventory::generate_sample_inventory();
+    inventory::init_struct_inventory();
 }
 
 
