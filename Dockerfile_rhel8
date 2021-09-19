@@ -7,9 +7,9 @@ RUN cd /invdsigner && cargo build
 
 FROM registry.access.redhat.com/ubi8/ubi 
 WORKDIR / 
-COPY static /static
+# COPY static /static
 RUN ls -la / && ls -la /usr/local/bin 
-COPY --from=build /invdsigner/target/debug/invdsigner /usr/local/bin 
+COPY --from=build /invdsigner/target/debug/inventory-dsigner /usr/local/bin 
 # COPY --from=build /go/server.* /
-CMD ["invdsigner"] 
+CMD ["inventory-dsigner"] 
 EXPOSE 7878
