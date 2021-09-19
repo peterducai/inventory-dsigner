@@ -6,8 +6,8 @@ use argparse::{ArgumentParser, StoreTrue, Store};
 fn main() {
     let mut verbose = false;
     // const version: String = "";
-    const INTERNAL_VERSION: i32 = 1632059132;
-    let mut version = "0.0.1 build 1632059132".to_string();
+    const INTERNAL_VERSION: i32 = 1632063420;
+    let mut version = "0.0.1".to_string();
     { // this block limits scope of borrows by ap.refer() method
         let mut ap = ArgumentParser::new();
         ap.set_description("Greet somebody.");
