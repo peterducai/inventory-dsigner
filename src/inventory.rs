@@ -21,33 +21,12 @@ pub mod inventory {
 //         let file = File::open(filename)?;
 //         Ok(io::BufReader::new(file).lines())
 //     }
+
+    pub fn inventory_to_dirs() {
+        println!("inv 2 dirs");
+    }
+
+    pub fn dirs_to_inventory() {
+        println!("dirs 2 inventory");
+    }
 }
-
-
-// [atlanta]
-// host1 http_port=80 maxRequestsPerChild=808
-// host2 http_port=303 maxRequestsPerChild=909
-
-// [webservers]
-// www[01:50].example.com
-
-// www[01:50:2].example.com # increments between sequence numbers
-// db-[a:f].example.com  # alphabetic range
-
-// localhost              ansible_connection=local
-// other1.example.com     ansible_connection=ssh        ansible_user=myuser  ansible_port=5555 ansible_host=192.0.2.50
-
-// GROUP VARS
-// [atlanta:vars]
-// ntp_server=ntp.atlanta.example.com
-// proxy=proxy.atlanta.example.com
-
-// /etc/ansible/group_vars/raleigh # can optionally end in '.yml', '.yaml', or '.json'
-// /etc/ansible/group_vars/webservers
-// /etc/ansible/host_vars/foosball
-
-// VARS
-
-// ---
-// ntp_server: acme.example.org
-// database_server: storage.example.org
