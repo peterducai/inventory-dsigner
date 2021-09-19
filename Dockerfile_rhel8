@@ -1,0 +1,15 @@
+# building container 
+FROM registry.access.redhat.com/ubi8/ubi AS build 
+RUN mkdir /invdsigner && dnf install git rust cargo -y && dnf clean all -y
+WORKDIR /invdsigner 
+COPY . /invdsigner
+RUN cd /invdsigner && cargo build
+
+FROM registry.access.redhat.com/ubi8/ubi 
+WORKDIR / 
+COPY static /static
+RUN ls -la / && ls -la /usr/local/bin 
+COPY --from=build /invdsigner/target/debug/invdsigner /usr/local/bin 
+# COPY --from=build /go/server.* /
+CMD ["invdsigner"] 
+EXPOSE 7878

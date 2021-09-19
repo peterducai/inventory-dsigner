@@ -1,4 +1,4 @@
-pub mod arg_pars {
+pub mod arg_parse {
     //create parser
     pub fn init_parser() {}
     //insert options

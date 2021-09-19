@@ -17,6 +17,11 @@ WORK IN PROGRESS (not working yet)
 
 > build.sh
 
+or
+
+> buildah bud -t invdsigner:latest .
+> podman run -dt -v $(pwd):/mnt/myfolder:Z localhost/invdsigner invdsigner --generate-sample-inventory myfolder
+
 <!-- # openshift
 
 > oc new-app golang~https://github.com/peterducai/invcomb.git
