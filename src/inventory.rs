@@ -13,7 +13,7 @@ pub mod inventory {
         let mut inven = Vec::new();
         inven.push("---".to_string());
         unsafe {
-            INVENTORY.push("sdafadfdsfdvcdasfdewfdsafsadfsfdds".to_string());
+            INVENTORY.push("# GENERATED WITH INVENTORY DSIGNER".to_string());
             println!("\n- INVENTORY ------------\n{:?}", INVENTORY);
         }
         
@@ -42,14 +42,13 @@ pub mod inventory {
     }
 
     pub fn write_inventory_to_file(filename: String) {
-        let data = "#HOST WITH VARS
-localhost              ansible_connection=local
-other1.example.com     ansible_connection=ssh        ansible_user=myuser  ansible_port=5555 ansible_host=192.0.2.50";
+        let data = "#write_inventory_to_file data";
         std::fs::write(filename, data).expect("Unable to write file");
     }
 
     pub fn generate_sample_inventory() {
-        let data = "#VARS
+        let data = "# GENERATED WITH INVENTORY DSIGNER
+#VARS
 ntp_server: acme.example.org
 database_server: storage.example.org
 

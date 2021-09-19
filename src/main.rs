@@ -5,7 +5,7 @@ use argparse::{ArgumentParser, StoreTrue, Store};
 
 fn main() {
     let mut verbose = false;
-    let mut version = "0.0.1".to_string();
+    let mut version = "0.0.1 build 1632059132".to_string();
     { // this block limits scope of borrows by ap.refer() method
         let mut ap = ArgumentParser::new();
         ap.set_description("Greet somebody.");
@@ -22,7 +22,7 @@ fn main() {
         println!("version is {}", version);
     }
     println!("Inventory dSigner {} \"Ulotrichous\"", version);
-    inventory::inventory::load_file("inventory.ini".to_string());
+    inventory::inventory::load_file("inventory".to_string());
     inventory::inventory::generate_sample_inventory();
     inventory::inventory::init_struct_inventory();
 }
