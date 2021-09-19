@@ -23,6 +23,8 @@ fn main() {
     }
     println!("Inventory dSigner {} \"Ulotrichous\"", version);
     inventory::inventory::load_file("inventory.ini".to_string());
+    inventory::inventory::generate_sample_inventory();
+    inventory::inventory::init_struct_inventory();
 }
 
 

@@ -25,4 +25,3 @@ proxy=proxy.atlanta.example.com
 # /etc/ansible/group_vars/raleigh # can optionally end in '.yml', '.yaml', or '.json'
 # /etc/ansible/group_vars/webservers
 # /etc/ansible/host_vars/foosball
-
