@@ -1,6 +1,6 @@
 # Inventory dSigner
 
-WORK IN PROGRESS
+WORK IN PROGRESS (not working yet)
 
 <!-- ```
     Major change: a change that requires a major SemVer bump.
