@@ -21,7 +21,7 @@ or
 
 > buildah bud -t invdsigner_fedora:latest Dockerfile_fedora
 > buildah bud -t invdsigner_ubi8:latest Dockerfile_rhel8
-> podman run -dt -v $(pwd):/mnt/myfolder:Z localhost/invdsigner invdsigner --generate-sample-inventory myfolder
+> podman run -dt -v $(pwd):/mnt/myfolder:Z localhost/invdsigner_fedora:latest invdsigner --generate-sample-inventory myfolder
 
 <!-- # openshift
 

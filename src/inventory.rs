@@ -35,6 +35,16 @@ pub mod inventory {
 
     pub fn inventory_to_dirs() {
         println!("inv 2 dirs");
+        create_dir("group_vars");
+        create_dir("host_vars");
+    }
+
+    fn create_dir(path: &str){
+        let r = std::fs::create_dir_all(path);
+        match r {
+            Err(e) => println!("error creating {}: {}", path, e),
+            Ok(_) => println!("created {}: OK", path),
+        }
     }
 
     pub fn dirs_to_inventory() {
