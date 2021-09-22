@@ -1,3 +1,7 @@
+use std::io;
+use std::fs::{self, DirEntry};
+use std::path::Path;
+
 pub mod inventory {
 
     // #[derive(Debug)]
@@ -51,6 +55,22 @@ pub mod inventory {
         for file in std::fs::read_dir(path).unwrap() {
             println!("{}", file.unwrap().path().display());
         }
+    }
+
+    // one possible implementation of walking a directory only visiting files
+    fn visit_dirs(dir: &std::path::Path, cb: &dyn Fn(&std::fs::DirEntry)) -> std::io::Result<()> {
+        if dir.is_dir() {
+            for entry in std::fs::read_dir(dir)? {
+                let entry = entry?;
+                let path = entry.path();
+                if path.is_dir() {
+                    visit_dirs(&path, cb)?;
+                } else {
+                    cb(&entry);
+                }
+            }
+        }
+        Ok(())
     }
 
     pub fn dirs_to_inventory() {
