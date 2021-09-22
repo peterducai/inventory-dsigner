@@ -35,8 +35,8 @@ pub mod inventory {
 
     pub fn inventory_to_dirs() {
         println!("inv 2 dirs");
-        create_dir("group_vars");
-        create_dir("host_vars");
+        create_dir("inventory/group_vars");
+        create_dir("inventory/host_vars");
     }
 
     fn create_dir(path: &str){
@@ -44,6 +44,12 @@ pub mod inventory {
         match r {
             Err(e) => println!("error creating {}: {}", path, e),
             Ok(_) => println!("created {}: OK", path),
+        }
+    }
+
+    pub fn list_dir(path: &str){
+        for file in std::fs::read_dir(path).unwrap() {
+            println!("{}", file.unwrap().path().display());
         }
     }
 
