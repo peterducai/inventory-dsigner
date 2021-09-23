@@ -3,7 +3,7 @@ pub mod inventory {
     #[derive(Debug)]
     pub struct Vars {
         // pub header: String,
-        pub name: String
+        pub name: String   //could be like: "ansible_user=myuser ansible_port=5555 ansible_host=192.0.2.50"
     }
 
     #[derive(Debug)]
@@ -16,9 +16,9 @@ pub mod inventory {
     #[derive(Debug)]
     pub struct Group {
         // pub header: String,
-        pub name: String,
+        pub name: String,  // [$GROUP]
         pub hosts: Vec<Host>,
-        pub vars: Vec<Vars>
+        pub vars: Vec<Vars>   // [$GROUP:vars]
     }
 
     #[derive(Debug)]
