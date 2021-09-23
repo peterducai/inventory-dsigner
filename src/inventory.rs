@@ -43,6 +43,10 @@ pub mod inventory {
         create_dir("inventory/host_vars");
     }
 
+    // let path = "/tmp/friends/goofy";
+    // let b: bool = Path::new(path).is_dir();
+    // println!("{} exists: {}", path, b);
+
     fn create_dir(path: &str){
         let r = std::fs::create_dir_all(path);
         match r {
