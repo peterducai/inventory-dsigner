@@ -1,16 +1,35 @@
-use std::io;
-use std::fs::{self, DirEntry};
-use std::path::Path;
-
 pub mod inventory {
 
-    // #[derive(Debug)]
-    // pub struct Inventory {
-    //     pub name: String,
-    //     pub hosts: String,
-    //     pub groups: String,
-    //     pub vars: String
-    // }
+    #[derive(Debug)]
+    pub struct Vars {
+        // pub header: String,
+        pub name: String
+    }
+
+    #[derive(Debug)]
+    pub struct Host {
+        // pub header: String,
+        pub name: String,
+        pub vars: Vec<Vars>
+    }
+
+    #[derive(Debug)]
+    pub struct Group {
+        // pub header: String,
+        pub name: String,
+        pub hosts: Vec<Host>,
+        pub vars: Vec<Vars>
+    }
+
+    #[derive(Debug)]
+    pub struct Inventory {
+        pub header: String,
+        pub name: String,
+        pub vars: Vec<Vars>,
+        pub hosts: Vec<Host>,
+        pub groups: Vec<Group>
+    }
+
     static mut INVENTORY: Vec<String> = Vec::new();
     
     pub fn init_struct_inventory() {
@@ -62,20 +81,20 @@ pub mod inventory {
     }
 
     // one possible implementation of walking a directory only visiting files
-    fn visit_dirs(dir: &std::path::Path, cb: &dyn Fn(&std::fs::DirEntry)) -> std::io::Result<()> {
-        if dir.is_dir() {
-            for entry in std::fs::read_dir(dir)? {
-                let entry = entry?;
-                let path = entry.path();
-                if path.is_dir() {
-                    visit_dirs(&path, cb)?;
-                } else {
-                    cb(&entry);
-                }
-            }
-        }
-        Ok(())
-    }
+    // fn visit_dirs(dir: &std::path::Path, cb: &dyn Fn(&std::fs::DirEntry)) -> std::io::Result<()> {
+    //     if dir.is_dir() {
+    //         for entry in std::fs::read_dir(dir)? {
+    //             let entry = entry?;
+    //             let path = entry.path();
+    //             if path.is_dir() {
+    //                 visit_dirs(&path, cb)?;
+    //             } else {
+    //                 cb(&entry);
+    //             }
+    //         }
+    //     }
+    //     Ok(())
+    // }
 
     pub fn dirs_to_inventory() {
         println!("dirs 2 inventory");
